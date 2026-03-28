@@ -24,7 +24,7 @@
 
         Step 1: Clone the Repository Open your terminal or
                 command prompt and run the following command: 
-                git clone https://github.com/ankiitsony-git-hub/currency-converter.git 
+                git clone https://github.com/ankiitsony-git-hub/number-guessing-game-/tree/main
                 This will download the project files to your computer.
    
 
