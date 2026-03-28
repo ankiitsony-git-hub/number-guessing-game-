@@ -13,9 +13,13 @@
    
 
     a-- HTML5
+   
     b-- CSS3
+   
     c-- JavaScript (vanilla JS)
+   
     d-- Git & GitHub
+   
 
 
 5. Instructions to Run the Project
