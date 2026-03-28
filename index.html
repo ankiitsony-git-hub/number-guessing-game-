@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+  <title>Guess the Number</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: sans-serif;
+      background: #7ce0e5;
+    }
+    .game {
+      width: 300px;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      background: rgb(228, 183, 183);
+      text-align: center;
+    }
+    input, button {
+      padding: 8px 12px;
+      margin: 5px;
+      font-size: 16px;
+    }
+    #feedback {
+      margin-top: 15px;
+      font-size: 18px;
+    }
+    #attempts {
+      margin-top: 5px;
+      font-size: 14px;
+      color: #444;
+    }
+  </style>
+
+<body>
+  <div class="game">
+    <h1>Guess the Number</h1>
+    <p>I'm thinking of a number between 1 and 100.</p>
+    <input id="guess" type="number" min="1" max="100" placeholder="Your guess" />
+    <button id="btn">Guess</button>
+    <button id="restart">Restart</button>
+    <div id="feedback"></div>
+    <div id="attempts">Attempts: 0</div>
+  </div>
+
+  <script>
+    let secret = Math.floor(Math.random() * 100) + 1;
+    let attempts = 0;
+
+    function guess() {
+      let guessEl = document.getElementById("guess");
+      let value = Number(guessEl.value);
+
+      if (value < 1 || value > 100 || isNaN(value)) {
+        document.getElementById("feedback").textContent = "Please enter a number between 1 and 100.";
+        return;
+      }
+
+      attempts++;
+      document.getElementById("attempts").textContent = "Attempts: " + attempts;
+
+      if (value < secret) {
+        document.getElementById("feedback").textContent = "Too low!";
+      } else if (value > secret) {
+        document.getElementById("feedback").textContent = "Too high!";
+      } else {
+        document.getElementById("feedback").textContent = "🎉 Correct!";
+        guessEl.disabled = true;
+        document.getElementById("btn").disabled = true;
+      }
+    }
+
+    function restart() {
+      secret = Math.floor(Math.random() * 100) + 1;
+      attempts = 0;
+      document.getElementById("guess").value = "";
+      document.getElementById("guess").disabled = false;
+      document.getElementById("btn").disabled = false;
+      document.getElementById("feedback").textContent = "";
+      document.getElementById("attempts").textContent = "Attempts: 0";
+    }
+
+    document.getElementById("btn").addEventListener("click", guess);
+    document.getElementById("restart").addEventListener("click", restart);
+  </script>
+</body>
+</html>
+
+</head>
+<body>
+    
+</body>
+</html>
